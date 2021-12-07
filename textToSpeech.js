@@ -7,11 +7,12 @@ speech.lang = "en";
 let voices = []; // global array of available voices
 
 window.speechSynthesis.onvoiceschanged = () => {
-  // Get List of Voices
+  // Get List of Voice
   voices = window.speechSynthesis.getVoices();
 
   // Initially set the First Voice in the Array.
   speech.voice = voices[0];
+
 
   // Set the Voice Select List. (Set the Index as the value, which we'll use later when the user updates the Voice using the Select Menu.)
   let voiceSelect = document.querySelector("#voices");
@@ -53,6 +54,8 @@ document.querySelector("#pitch").addEventListener("input", () => {
 
 document.querySelector("#voices").addEventListener("change", () => {
   // On Voice change, use the value of the select menu (which is the index of the voice in the global voice array)
+
+  alert("Voices")
   speech.voice = voices[document.querySelector("#voices").value];
 });
 
@@ -71,6 +74,9 @@ document.querySelector("#pause").addEventListener("click", () => {
 
 document.querySelector("#resume").addEventListener("click", () => {
   // Resume the paused speechSynthesis instance
+
+  alert("Resume clicked");
+
   window.speechSynthesis.resume();
 });
 
